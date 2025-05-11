@@ -1,0 +1,85 @@
+﻿{
+  "description": "Retail sales data transformation from CSV to JSON, focusing on electronics, calculating total sales, and filtering out zero quantity sales.",
+  "input": {
+    "file_type": "csv",
+    "delimiter": ",",
+    "encoding": "utf-8",
+    "has_header": true,
+    "columns": [
+        "ProductID", "ProductName", "Category", "UnitPrice", "QuantitySold", "TransactionDate", "StoreID", "Comments"
+    ]
+  },
+  "transformations": {
+    "column_mappings": [
+      {"from": "ProductID", "to": "product_id"},
+      {"from": "ProductName", "to": "product_name"},
+      {"from": "Category", "to": "category"},
+      {"from": "UnitPrice", "to": "unit_price"},
+      {"from": "QuantitySold", "to": "quantity_sold"},
+      {"from": "TransactionDate", "to": "transaction_date"},
+      {"from": "StoreID", "to": "store_id"},
+      {"from": "Comments", "to": "notes"}
+    ],
+    "filters": [
+      {
+        "column": "category",
+        "condition": "==",
+        "value": "Electronics"
+      },
+      {
+        "column": "unit_price",
+        "condition": ">",
+        "value": 30.0
+      },
+      {
+        "column": "quantity_sold",
+        "condition": ">",
+        "value": 0
+      }
+    ],
+    "new_columns": [
+      {
+        "name": "total_sale_amount",
+        "operation": "eval",
+        "expression": "unit_price * quantity_sold"
+      },
+      {
+        "name": "sale_year",
+        "operation": "eval",
+        "expression": "transaction_date.dt.year"
+      },
+      {
+        "name": "item_description",
+        "operation": "concat",
+        "sources": ["product_name", "notes"],
+        "separator": " - Note: "
+      }
+    ],
+    "data_type_conversions": {
+      "product_id": "str",
+      "unit_price": "float",
+      "quantity_sold": "int",
+      "transaction_date": "datetime",
+      "total_sale_amount": "float",
+      "sale_year": "int"
+    }
+  },
+  "output": {
+    "file_type": "json",
+    "encoding": "utf-8",
+    "orient": "records",
+    "indent": 2,
+    "columns": [
+      "product_id",
+      "product_name",
+      "category",
+      "unit_price",
+      "quantity_sold",
+      "total_sale_amount",
+      "transaction_date",
+      "sale_year",
+      "store_id",
+      "item_description"
+    ]
+  }
+}

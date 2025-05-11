@@ -1,0 +1,13 @@
+﻿ProductID,ProductName,Category,UnitPrice,QuantitySold,TransactionDate,StoreID,Notes
+101,Laptop Pro,Electronics,1200.00,5,2025-05-01,S100,High-end model
+102,Eco Mouse,Electronics,25.50,20,2025-05-01,S100,Made from recycled materials
+103,Mechanical Keyboard,Electronics,75.00,15,2025-05-02,S101,RGB Backlit
+104,4K Monitor,Electronics,300.75,8,2025-05-02,S100,
+105,HD Webcam,Electronics,50.25,10,2025-05-03,S102,Includes tripod
+106,Ergo Chair,Furniture,150.00,3,2025-05-03,S101,Lumbar support
+107,Smart Coffee Maker,Appliances,80.99,7,2025-05-04,S100,Wi-Fi enabled
+108,A5 Notebook,Stationery,5.50,50,2025-05-04,S102,100 pages
+109,Gel Pen Set,Stationery,12.00,30,2025-05-05,S101,Pack of 12
+110,Standing Desk,Furniture,220.00,2,2025-05-05,S100,Adjustable height
+111,Gaming Mouse,Electronics,65.00,0,2025-05-06,S103,Low stock
+112,Tablet Basic,Electronics,199.99,12,2025-05-06,S100,
