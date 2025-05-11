@@ -48,7 +48,6 @@ etl_utilities/
    git clone <repository_url>
    cd etl_utilities
    ```
-   If you generated the files using the PowerShell script, you'll already have the project directory.
 
 2. **Install dependencies:**
    This project primarily uses pandas for data manipulation.
